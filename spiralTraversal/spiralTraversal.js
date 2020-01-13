@@ -42,3 +42,23 @@ spiralTraversal([[ 1 ], [ 2 ], [ 3 ], [ 4 ]])	// [ 1, 2, 3, 4 ]
 
 spiralTraversal([[ 1, 2, 3, 4, 5, 6, 7 ]]) // [ 1, 2, 3, 4, 5, 6, 7 ]
 */
+
+const spiralTraversal = array => {
+  const result = [];
+  let collum = 0;
+  let row = 0;
+  let ngrOfIteration = 0;
+  let count = 0;
+  for (let i = collum; i < array[row].length; i++) {
+    result.push(array[row][i]);
+    ngrOfIteration++;
+    if (i === array[row].length - 1 && row !== array.length - 1) {
+      row++;
+      i = array[row].length - 2;
+    } else if (ngrOfIteration >= array[row].length - 1 && i !== 0) {
+      i = array[row].length - 2;
+    }
+    console.log(result);
+  }
+  return result;
+};
