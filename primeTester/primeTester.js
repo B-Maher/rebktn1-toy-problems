@@ -10,9 +10,8 @@ primeTester(1) // false
 */
 
 function primeTester(n) {
-  if (n < 1) return false;
+  if (n <= 1) return false;
   for (let i = 2; i < n; i++) {
-    console.log(n % i === 0 && n !== i);
     if (n % i === 0 && n !== i) return false;
   }
   return true;
