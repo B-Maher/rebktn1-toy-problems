@@ -12,6 +12,7 @@ longestRun("abcdefgh") // [ 0, 0 ]
 longestRun("abccccccc") // [ 2, 8 ]
 */
 
+<<<<<<< HEAD
 function longestRun(string, result, i, current, start, count) {
     result = result || [0, 0];
     i = i || 0; //to keep track of the current index
@@ -38,3 +39,8 @@ function longestRun(string, result, i, current, start, count) {
     //redo the same things with recursion
     return longestRun(string.slice(1), result, i + 1, current, start, count)
 }
+=======
+
+
+
+>>>>>>> 26958188a2074d88c523cd902b4e19b8f6d513e6
