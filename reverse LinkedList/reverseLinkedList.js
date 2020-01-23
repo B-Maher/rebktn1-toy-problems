@@ -38,16 +38,4 @@ var reverseLinkedList = function(linkedList) {
     linkedList = linkedList.next;
   }
   return newLinkedList;
-
-  // newLinkedList = newLinkedList || {};
-  // if (!linkedList.next) {
-  //   let node = new Node(linkedList.value);
-  //   return node;
-  // } else {
-
-  //   let newLinkedList = reverseLinkedList(linkedList.next);
-  //   let node = new Node(linkedList.value);
-  //   newLinkedList.next = node;
-  // }
-  // return newLinkedList;
 };
