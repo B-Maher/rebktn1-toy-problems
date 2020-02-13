@@ -14,17 +14,17 @@ Caveats:
   • It is not necessary to write a way to remove listeners.
 */
 
-var mixEvents = function (obj) {
-    // your code here...
-    var events = {};
+var mixEvents = function(obj) {
+  var events = {};
 
-    obj.trigger = function (event) {
-        // your code here...
-    };
+  obj.trigger = function(event, ...args) {
+    obj[event].forEach(element => element(...args));
+  };
 
-    // Register a callback to be fired on this event.
-    obj.on = function (event, callback) {
-        // your code here...
-    };
-    return obj;
+  // Register a callback to be fired on this event.
+  obj.on = function(event, callback) {
+    !obj[event] && (obj[event] = []);
+    obj[event].push(callback);
+  };
+  return obj;
 };
