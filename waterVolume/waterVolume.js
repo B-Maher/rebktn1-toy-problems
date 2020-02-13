@@ -19,5 +19,15 @@ volume([1,2,3,2,1]) // 0
 */
 
 function volume(heights) {
-  // your code here...
+  let max = 0;
+  for (let i = 1; i < heights.length; i++) {
+    if (heights[i] === 0) {
+      if (heights[i - 1] < heights[i + 1]) {
+        heights[i - 1] > max && (max = heights[i - 1]);
+      } else {
+        heights[i + 1] > max && (max = heights[i - 1]);
+      }
+    }
+  }
+  return max;
 }
