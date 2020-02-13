@@ -38,6 +38,20 @@ function makeBoard(n) {
   return board;
 }
 
-function robotPaths(n) {
-  // your code here...
+function robotPaths(n, rowIndex = 0, columnIndex = 0, board, nbrOfPath = 0) {
+  board = board || makeBoard(n);
+  if (rowIndex < 0 || rowIndex >= n || columnIndex < 0 || columnIndex >= n) return 0;
+  if (board.hasBeenVisited(rowIndex, columnIndex)) return 0;
+  if (columnIndex === n - 1 && rowIndex === n - 1) return 1;
+
+  board.togglePiece(rowIndex, columnIndex);
+  nbrOfPath +=
+    robotPaths(n, rowIndex, columnIndex + 1, board, nbrOfPath) +
+    robotPaths(n, rowIndex + 1, columnIndex, board, nbrOfPath) +
+    robotPaths(n, rowIndex, columnIndex - 1, board, nbrOfPath) +
+    robotPaths(n, rowIndex - 1, columnIndex, board, nbrOfPath);
+
+  board.togglePiece(rowIndex, columnIndex);
+
+  return nbrOfPath;
 }
