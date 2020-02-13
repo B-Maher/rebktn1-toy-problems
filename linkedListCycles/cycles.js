@@ -28,13 +28,24 @@ function Node(val) {
 }
 
 var hasCycle = function(linkedList) {
-  const storage = new Map();
-  while (linkedList) {
-    if (linkedList.next === null) return false;
-    if (storage.get(linkedList) === linkedList) return true;
-    storage.set(linkedList, linkedList);
-    linkedList = linkedList.next;
+  var p1 = linkedList;
+  var p2 = linkedList;
+
+  while (p1.next) {
+    p1 = p1.next;
+    p2 = p2.next.next;
+    if (p1 === p2) {
+      return true;
+    }
   }
+  return false;
+  // const storage = new Map();
+  // while (linkedList) {
+  //   if (linkedList.next === null) return false;
+  //   if (storage.get(linkedList) === linkedList) return true;
+  //   storage.set(linkedList, linkedList);
+  //   linkedList = linkedList.next;
+  // }
 };
 
 var a = new Node(1);
