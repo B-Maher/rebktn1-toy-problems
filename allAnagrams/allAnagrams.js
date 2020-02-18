@@ -7,29 +7,28 @@
  */
 
 /**
-  * example usage:
-  * var anagrams = allAnagrams('abc');
-  * console.log(anagrams); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
-  */
+ * example usage:
+ * var anagrams = allAnagrams('abc');
+ * console.log(anagrams); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
+ */
 
-var allAnagrams = function (string) {
+var allAnagrams = function(string) {
   // Your code here.
   let result = {};
-  let arr = string.split('');
+  let arr = string.split("");
 
   function innerFunction(array, temp = []) {
     if (array.length === 0) {
-      result[temp.join('')] = temp.join('');
+      result[temp.join("")] = temp.join("");
       return;
     }
     for (let i = 0; i < array.length; i++) {
-      console.log(array)
       temp.push(array[i]);
       innerFunction(array.slice(0, i).concat(array.slice(i + 1)), temp);
-      temp.pop()
+      temp.pop();
     }
   }
-  innerFunction(arr)
+  innerFunction(arr);
   return Object.keys(result);
 };
 
